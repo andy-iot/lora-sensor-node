@@ -4,8 +4,7 @@
 #include <LoRa.h>
 #include <Wire.h>
 #include <WiFi.h>
-#include "SSD1306.h" 
-#include "images.h"
+#include "SSD1306.h"
 #include "uptime.h"
 #include <BME280I2C.h>
 #include <Adafruit_MPU6050.h>
