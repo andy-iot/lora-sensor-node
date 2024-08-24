@@ -5,13 +5,13 @@
 
 #include "lora-display.h"
 
+SSD1306 display(0x3c, 21, 22);
+
 unsigned int count = 0;
 
 void setup() {
   Serial.begin(115200);
   while (!Serial);
-
-  initDisplay();
 
   Serial.println("Hello World!");
 
@@ -19,7 +19,6 @@ void setup() {
 }
 
 void loop() {
-  updateOled(count);
   count++;
   digitalWrite(25, HIGH);   // turn the LED on (HIGH is the voltage level)
   delay(500);                       // wait for a second

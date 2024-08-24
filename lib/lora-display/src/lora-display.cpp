@@ -1,22 +1,23 @@
+#include <lora-display.h>
 #include <Arduino.h>
 #include <SPI.h>
 #include <Wire.h>
 #include "SSD1306.h" 
 
-SSD1306 display(0x3c, 21, 22);
+#define DISPLAY_FONT  ArialMT_Plain_10
 
-void initDisplay()
+void LoRADisplay::init(SSD1306 display)
 {
   display.init();
   display.flipScreenVertically();  
-  display.setFont(ArialMT_Plain_10);
+  display.setFont(DISPLAY_FONT);
 }
 
-void updateOled(unsigned int count)
+void LoRADisplay::update(unsigned int count)
 {
   display.clear();
   display.setTextAlignment(TEXT_ALIGN_LEFT);
-  display.setFont(ArialMT_Plain_10);
+  display.setFont(DISPLAY_FONT);
   
   display.drawString(0, 0, "Hello World: " + String(count));
 
